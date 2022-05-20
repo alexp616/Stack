@@ -1,82 +1,36 @@
 import java.util.*;
-public class StackExpTestDay2
+public class BetterStackExpTestDay2
 {
- public static String infix2Postfix(String infix)
- {
-   String operators = "+-*/%^!";
-   String result = "";
-   Stack<String> tempStack = new Stack<String>();
-   //step 1
-   while (infix.length() > 0) {
-     //step 2
-     if (Character.isDigit(infix.charAt(0))) {
-       result += infix.substring(0,1);
-     }
-     //step 3
-     else if (operators.indexOf(infix.substring(0,1)) > -1) {
-       
-       
-       boolean leftParenFound = false;
-       while (!leftParenFound) {
-         if (tempStack.empty()) {
-           break;
-         }
-         else if (tempStack.peek().equals("(")) {
-           leftParenFound = true;
-         }
-         else if (priority(tempStack.peek()) >= priority(infix.substring(0,1))) {
-           result += tempStack.pop();
-         }
-         else {
-           break;
-         }
-       }
-       tempStack.push(infix.substring(0,1));
-     }
-     else {//steps 4 and 5
-       if (infix.substring(0,1).equals("(")) {
-         tempStack.push("(");
-       }
-       else if (infix.substring(0,1).equals(")")) {
-         boolean leftParenFound = false;
-         while (!leftParenFound) {
-           if (!tempStack.peek().equals("(")) {
-             result += tempStack.pop();
-           }
-           else {
-             leftParenFound = true;
-             tempStack.pop();
-           }
-         }
-       }
-     }
-     infix = infix.substring(1);
-   }
-   while (!tempStack.empty()) {
-     result += tempStack.pop();
-   }
-   return result;
- }
+  public static String infix2Postfix(String infix)
+  {
+    return "";  
+  }
  
- public static int priority(String a) {
-   if (a.equals("+") || a.equals("-")) {
-     return 1;
-   }
-   else if (a.equals("*") || a.equals("/") || a.equals("%")) {
-     return 2;
-   }
-   else if (a.equals("^")) {
-     return 3;
-   }
-   else if (a.equals("!")) {
-     return 4;
-   }
-   else {
-     return 0;
-   }
- }
- 
-  public static void main(String[] args)
+  public static ArrayList<String> tokenArrayGenerator(String exp) {
+    String operators = "+-*/%^!()";
+    ArrayList<String> result = new ArrayList<String>();
+    while (exp.length() > 0) {
+      if (operators.indexOf(exp.substring(0,1)) > -1) {
+        if (exp.substring(0,1) == "-") {
+          if (Character.isDigit(exp.charAt(1)) || exp.charAt(1) == '.') {
+            String temp1 = "-" + exp.substring(1,2);
+            boolean operatorFound = false;
+            while (!operatorFound) {
+              if (exp.charAt(2)
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*public static int findIndexOfNextOperator(String exp) {
+    int counter = 0;
+    for (int i = 0; i < exp.length(); i++) {
+      
+    }
+  }*/
+ public static void main(String[] args)
   {
     String answer, yourAns;
     String exp;

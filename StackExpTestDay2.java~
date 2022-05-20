@@ -6,29 +6,15 @@ public class StackExpTestDay2
    String operators = "+-*/%^!";
    String result = "";
    Stack<String> tempStack = new Stack<String>();
-   //step 1
    while (infix.length() > 0) {
-     //step 2
      if (Character.isDigit(infix.charAt(0))) {
        result += infix.substring(0,1);
      }
-     //step 3
      else if (operators.indexOf(infix.substring(0,1)) > -1) {
-       
-       
        boolean leftParenFound = false;
        while (!leftParenFound) {
-         if (tempStack.empty()) {
-           break;
-         }
-         else if (tempStack.peek().equals("(")) {
-           leftParenFound = true;
-         }
-         else if (priority(tempStack.peek()) >= priority(infix.substring(0,1))) {
+         if (priority(tempStack.peek()) > priority(infix.substring(0,1))) {
            result += tempStack.pop();
-         }
-         else {
-           break;
          }
        }
        tempStack.push(infix.substring(0,1));
@@ -51,9 +37,6 @@ public class StackExpTestDay2
        }
      }
      infix = infix.substring(1);
-   }
-   while (!tempStack.empty()) {
-     result += tempStack.pop();
    }
    return result;
  }
@@ -83,7 +66,7 @@ public class StackExpTestDay2
     int c=0, w=0;
     
     exp = "2+5+6";
-    answer = "25+6+";
+    answer = "256++";
     System.out.println("Testing infix to postfix conversion for Single Digit Operation");
     System.out.println("Operations tested: +,-,*,/,%,^,!");
     System.out.println("Testing " + exp);

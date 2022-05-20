@@ -1,60 +1,11 @@
 import java.util.*;
-public class StackExpTestDay1
+public class BetterStackExpTestDay1
 {
  public static double evalAns(String exp)
  {
-  Double temp1;
-  Double temp2;
-  Double temp3;
-  Stack<String> asdf = new Stack<String>();
-  while (exp.length() > 0) {
-    
-    if (Character.isDigit(exp.charAt(0))) {
-      asdf.push(exp.substring(0,1));
-    }
-    else if (exp.charAt(0)=='+') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Integer.toString((int)(temp1+temp2)));
-    }
-    else if (exp.charAt(0)=='-') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Integer.toString((int)(temp2-temp1)));
-    }
-    else if (exp.charAt(0)=='*') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Integer.toString((int)(temp2*temp1)));
-    }
-    else if (exp.charAt(0)=='/') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Double.toString((temp2/temp1)));
-    }
-    else if (exp.charAt(0)=='%') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Integer.toString((int)(temp2%temp1)));
-    }
-    else if (exp.charAt(0)=='^') {
-      temp1 = Double.parseDouble(asdf.pop());
-      temp2 = Double.parseDouble(asdf.pop());
-      asdf.push(Integer.toString((int)Math.pow(temp2, temp1)));
-    }
-    else if (exp.charAt(0)=='!') {
-       temp1 = Double.parseDouble(asdf.pop());
-       temp2 = 1.0;
-       for (int i = 2; i <= temp1; i++) {
-         temp2 *= i;
-       }
-       
-       asdf.push("" + (int)(temp2+0));
-    }
-    exp = exp.substring(1);
-  }
-  return Double.parseDouble(asdf.pop());
+  return 0.0;
  }
+
  
   public static void main(String[] args)
   {
